@@ -1,0 +1,45 @@
+.main {
+  display: flex;
+}
+
+.main__left {
+  flex: 0.8;
+}
+
+.main__right {
+  flex: 0.2;
+  background-color: #242324;
+  border-color: 1px solid #3D3D42;
+}
+
+.videos {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.videos__container {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.videos__controls {
+  width: 100%;
+  align-self: center;
+}
+
+#videos-grid {
+  display: flex;
+  justify-content: center;
+}
+
+video {
+  height: 300px;
+  width: 400px;
+  object-fit: cover;
+}
