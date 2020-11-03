@@ -13,22 +13,10 @@ const Video = ({ peer, name }) => {
   }, [peer]);
 
   return (
-    <div id="videoGrid">
+    <>
       <video autoPlay ref={refVideo} playsInline />
       <span>{name}</span>
-    </div>
-
-    // <div className="videos">
-    //   <div className="videos__container">
-    //     <div id="videoGrid">
-    //       <video autoPlay ref={refVideo} playsInline />
-    //       <span>{name}</span>
-    //     </div>
-    //   </div>
-    //   <div className="videos__controls">
-    //     <FooterControls />
-    //   </div>
-    // </div>
+    </>
   );
 };
 

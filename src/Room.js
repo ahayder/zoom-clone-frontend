@@ -3,7 +3,6 @@ import io from 'socket.io-client';
 import Peer from 'simple-peer';
 import * as Chance from 'chance';
 import './Room.css'
-
 import Video from './Video';
 import RightColumn from './RightColumn';
 import FooterControls from './FooterControls';
@@ -101,6 +100,21 @@ const Room = (props) => {
     const peer = new Peer({
       initiator: true,
       trickle: false,
+      config: {
+
+        iceServers: [
+          {
+            urls: "stun:numb.viagenie.ca",
+            username: "sultan1640@gmail.com",
+            credential: "98376683"
+          },
+          {
+            urls: "turn:numb.viagenie.ca",
+            username: "sultan1640@gmail.com",
+            credential: "98376683"
+          }
+        ]
+      },
       stream,
     });
 
@@ -142,15 +156,17 @@ const Room = (props) => {
               <video muted ref={refVideo} autoPlay playsInline />
               <span>{userDetails.name}</span>
             </div>
-            {peers.map((peer, index) => {
-              return (
-                <Video
-                  key={peersRef.current[index].peerId}
-                  peer={peer.peerObj}
-                  name={peersRef.current[index].name}
-                />
-              );
-            })}
+            <div id="videoGrid">
+              {peers.map((peer, index) => {
+                return (
+                  <Video
+                    key={peersRef.current[index].peerId}
+                    peer={peer.peerObj}
+                    name={peersRef.current[index].name}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div className="videos__controls">
             <FooterControls />
