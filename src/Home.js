@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as Chance from 'chance';
 import './Home.css'
+import { Button, Input } from '@material-ui/core';
 
 const chance = new Chance();
 
@@ -13,14 +14,16 @@ const Home = ({ history }) => {
 
         <div className="home__container__top">
 
-          <input
+          <Input
+            className="input-box"
             type='text'
             placeholder="Meeting id"
             value={roomId}
             onChange={(e) => setRoomId(e.target.value)}
-          ></input>
+          ></Input>
 
-          <button
+          <Button
+            variant="contained"
             type='button'
             onClick={() => {
               if (!roomId) {
@@ -31,19 +34,21 @@ const Home = ({ history }) => {
             }}
           >
             Join in a meeting
-      </button>
+          </Button>
         </div>
 
 
-        <button
+        <Button
+          color="primary"
+          variant="contained"
           type='button'
           onClick={() => {
-            const id = chance.guid();
+            const id = chance.word();
             history.push(`/room/${id}`);
           }}
         >
           Start a New Meeting
-      </button>
+      </Button>
 
       </div>
     </div>
