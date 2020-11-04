@@ -33,7 +33,7 @@ const Home = ({ history }) => {
               history.push(`/room/${roomId}`);
             }}
           >
-            Join in a meeting
+            Join the meeting
           </Button>
         </div>
 
